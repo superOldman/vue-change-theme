@@ -1,32 +1,28 @@
 <template>
-    <el-color-picker 
-        v-model="mainColor" 
-        size="small"
-        @change="changeColor"
-    >
-    </el-color-picker>
+  <div class="hello">
+    13213
+    <div class="a item-0">3333333333333333333</div>
+    <el-button type="primary">oooo</el-button>
+    <el-tag>标签一</el-tag>
+  </div>  
 </template>
+
 <script>
-import { changeThemeColor, curColor } from '@/utils/themeColorClient'
-// import { message } from '@/utils/message'
+import client from "webpack-theme-color-replacer/client";
 export default {
-    data(){
-        return {
-            color: '#138C35',
-            mainColor: curColor
-        }
-    },
-    methods: {
-        changeColor(newColor) {
-            changeThemeColor(newColor).then(() => {
-                this.$message.success('主题色切换成功啦~')
-            })
-        }
-    }
+  name: 'HelloWorld',
+  props: {
+    msg: String
+  },
+  methods: {
+  }
 }
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-.el-color-picker {
-    margin: 0 20px;
+.hello{
+  color: var(--color);
+
 }
 </style>

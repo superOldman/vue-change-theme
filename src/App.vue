@@ -1,24 +1,34 @@
 <template>
   <div id="app" :style="{'--color': themeColor}">
-    <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <HelloWorld2 msg="Welcome to Your Vue.js App" />
+    <changeColor @theme-color="changeColor" />
+    <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
 </template>
 
 <script>
+import changeColor from '@/components/changeColor'
 import HelloWorld from './components/HelloWorld.vue'
-import HelloWorld2 from './components/HelloWorld2.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    HelloWorld2
+    changeColor,
+    HelloWorld
   },
   data() {
     return {
-      themeColor: 'blue'
+      themeColor: 'blue',
+    }
+  },
+  mounted() {
+    console.log(build_time);
+    sessionStorage.theme_color && this.changeColor(sessionStorage.theme_color)
+
+
+  },
+  methods: {
+    changeColor(val) {
+      this.themeColor = val
     }
   }
 }
